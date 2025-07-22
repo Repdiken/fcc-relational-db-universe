@@ -1,6 +1,13 @@
-CREATE DATABASE universe;
+-- Project: Relational Database - FreeCodeCamp
+-- Author: Amir Ali Hommasi
+-- Description: Creates and populates a relational database named "universe" with five interrelated tables.
 
--- TABLES
+
+CREATE DATABASE universe; -- First thing first, creating our database
+
+-- Creating the tables with 5 required columns
+-- Following other instructions like having 2 NOT NULL columns and specific data types
+
 CREATE TABLE galaxy(
 	galaxy_id SERIAL PRIMARY KEY,
 	name VARCHAR(40) NOT NULL UNIQUE,
@@ -8,6 +15,7 @@ CREATE TABLE galaxy(
     is_spiral BOOLEAN,
     description TEXT
 );
+
 
 CREATE TABLE star(
 	star_id SERIAL PRIMARY KEY,
@@ -17,13 +25,15 @@ CREATE TABLE star(
     is_active BOOLEAN NOT NULL
 );
 
+
 CREATE TABLE planet(
 	planet_id SERIAL PRIMARY KEY,
 	name VARCHAR(40) NOT NULL UNIQUE,
 	star_id INT REFERENCES star(star_id),
-    mass NUMERIC(5,2),
+    mass NUMERIC(7,2),
     is_habitable BOOLEAN NOT NULL
 );
+
 
 CREATE TABLE moon(
 	moon_id SERIAL PRIMARY KEY,
@@ -33,6 +43,7 @@ CREATE TABLE moon(
     has_life BOOLEAN NOT NULL
 );
 
+
 CREATE TABLE spacecraft(
 	spacecraft_id SERIAL PRIMARY KEY,
 	name VARCHAR(40) NOT NULL UNIQUE,
@@ -41,7 +52,9 @@ CREATE TABLE spacecraft(
     mission TEXT
 );
 
--- ROWS
+
+-- Inserting the wanted amount of rows into my tables
+
 INSERT INTO galaxy(name, age, is_spiral, description) VALUES
 ('Milky Way', 13.51, TRUE, 'Our home galaxy, contains the Solar System.'),
 ('Andromeda', 10.00, TRUE, 'Nearest spiral galaxy to the Milky Way, will collide with it in 4.5 billion years.'),
@@ -50,6 +63,7 @@ INSERT INTO galaxy(name, age, is_spiral, description) VALUES
 ('Sombrero', 12.80, TRUE, 'Has a bright nucleus and large central bulge, making it look like a hat.'),
 ('Large Magellanic Cloud', 13.10, FALSE, 'A satellite galaxy of the Milky Way.');
 
+
 INSERT INTO star (name, galaxy_id, temperature, is_active) VALUES
 ('Sun', 1, 5778, TRUE),
 ('Proxima Centauri', 1, 3042, TRUE),  
@@ -57,6 +71,7 @@ INSERT INTO star (name, galaxy_id, temperature, is_active) VALUES
 ('TRI-1221', 3, 5800, FALSE), 
 ('M87-Core', 4, 9000, TRUE),  
 ('LMC-X1', 6, 25000, TRUE); 
+  
   
 INSERT INTO planet (name, star_id, mass, is_habitable) VALUES
 ('Earth', 1, 5.97, TRUE), 
@@ -71,6 +86,7 @@ INSERT INTO planet (name, star_id, mass, is_habitable) VALUES
 ('M87b', 5, 7.80, FALSE),  
 ('Lumen I', 6, 1.11, TRUE),       
 ('Lumen II', 6, 0.98, FALSE);     
+
 
 INSERT INTO moon (name, planet_id, diameter, has_life) VALUES
 ('Luna', 1, 3475, FALSE),
@@ -94,6 +110,7 @@ INSERT INTO moon (name, planet_id, diameter, has_life) VALUES
 ('Lumora', 11, 600, TRUE),
 ('Shadewind', 12, 700, FALSE);
 
+
 INSERT INTO spacecraft (name, speed, planet_id, mission) VALUES
 ('Voyager I', 62000, 1, 'Explore outer planets and interstellar space'),
 ('Curiosity Rover', 200, 2, 'Mars surface exploration and data collection'),
@@ -101,3 +118,5 @@ INSERT INTO spacecraft (name, speed, planet_id, mission) VALUES
 ('Proxima Scout', 75000, 4, 'Send probes to Proxima b for atmosphere sampling'),
 ('Andros Ark', 150000, 5, 'First manned mission to Andros'),
 ('Lumen Seeker', 92000, 11, 'Search for life on Lumora');
+
+-- End of file - Relational Database Project completed.
