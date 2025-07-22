@@ -15,5 +15,9 @@ It creates and populates a PostgreSQL database called `universe`, which contains
 
 ## 🚀 How to Run
 
+Make sure you have PostgreSQL and psql CLI installed.  
+Then run the following command in your terminal (from the project folder):
+
 ```bash
 psql -U postgres < universe.sql
+
