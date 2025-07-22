@@ -1,2 +1,19 @@
-# fcc-relational-db-universe
-This is my final project for the first semester of Software Engineering, where I applied the skills I learned during the course along with concepts I researched independently. The project is a fun and interactive mini-game that challenges the player to guess a randomly generated 4-digit code.
+# 🌌 Universe Database Project
+
+This project was built to complete the **Relational Database Certification** on [freeCodeCamp.org](https://www.freecodecamp.org/learn/relational-database/).
+
+It creates and populates a PostgreSQL database called `universe`, which contains five interconnected tables:
+- `galaxy`
+- `star`
+- `planet`
+- `moon`
+- `spacecraft`
+
+## 🧪 Technologies
+- PostgreSQL
+- psql (CLI)
+
+## 🚀 How to Run
+
+```bash
+psql -U postgres < universe.sql
